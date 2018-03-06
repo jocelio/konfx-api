@@ -1,5 +1,7 @@
 package com.testes.samples.authapi.task;
 
+import com.auth0.jwt.interfaces.DecodedJWT;
+import com.auth0.spring.security.api.authentication.AuthenticationJsonWebToken;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -25,7 +27,10 @@ public class TaskController {
 
 	@PostMapping
 	@PreAuthorize("hasAuthority('write:tasks')")
-	public void addTask(@RequestBody Task task) {
+	public void addTask(@RequestBody Task task, final AuthenticationJsonWebToken principal) {
+		System.out.println(((DecodedJWT)principal.getDetails()).getClaims());
+
+		task.setUserName("");
 		taskRepository.save(task);
 	}
 
