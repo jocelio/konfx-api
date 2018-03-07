@@ -1,4 +1,4 @@
-package com.testes.samples.authapi.contacts;
+package com.konfx.api.contacts;
 
 import com.google.common.collect.Lists;
 import org.springframework.security.access.prepost.PreAuthorize;

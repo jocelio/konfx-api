@@ -1,4 +1,4 @@
-package com.testes.samples.authapi.task;
+package com.konfx.api.task;
 
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.auth0.spring.security.api.authentication.AuthenticationJsonWebToken;

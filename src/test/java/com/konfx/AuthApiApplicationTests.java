@@ -1,4 +1,4 @@
-package com.testes.samples.authapi;
+package com.konfx;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

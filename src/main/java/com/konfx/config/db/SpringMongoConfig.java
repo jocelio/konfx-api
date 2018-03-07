@@ -1,4 +1,4 @@
-package com.testes.samples.authapi.config;
+package com.konfx.config.db;
 
 import com.mongodb.Mongo;
 import com.mongodb.MongoClient;

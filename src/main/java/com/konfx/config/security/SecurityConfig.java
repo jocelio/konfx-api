@@ -1,4 +1,4 @@
-package com.testes.samples.authapi.security;
+package com.konfx.config.security;
 
 
 import com.auth0.jwk.JwkProvider;

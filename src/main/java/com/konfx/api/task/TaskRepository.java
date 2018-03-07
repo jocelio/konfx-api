@@ -1,4 +1,4 @@
-package com.testes.samples.authapi.task;
+package com.konfx.api.task;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

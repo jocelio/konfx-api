@@ -1,4 +1,4 @@
-package com.testes.samples.authapi.contacts;
+package com.konfx.api.contacts;
 
 public class Contact {
 
