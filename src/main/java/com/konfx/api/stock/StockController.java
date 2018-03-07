@@ -23,7 +23,6 @@ public class StockController {
 		return stockRepository.save(Stock.from(stockDto)).toDTO();
 	}
 
-
 	@GetMapping
 	public List<StockDTO> getStocks() {
 		return Stock.toDTO(stockRepository.findAll());
