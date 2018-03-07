@@ -28,9 +28,6 @@ public class TaskController {
 	@PostMapping
 	@PreAuthorize("hasAuthority('write:tasks')")
 	public void addTask(@RequestBody Task task, final AuthenticationJsonWebToken principal) {
-		System.out.println(((DecodedJWT)principal.getDetails()).getClaims());
-
-		task.setUserName("");
 		taskRepository.save(task);
 	}
 
