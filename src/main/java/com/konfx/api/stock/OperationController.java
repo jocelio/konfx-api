@@ -1,10 +1,13 @@
 package com.konfx.api.stock;
 
 import com.konfx.api.stock.model.Operation;
+import com.konfx.api.stock.model.dto.OperationDTO;
 import com.konfx.api.stock.repository.OperationRepository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
+import static com.konfx.api.stock.model.Operation.toDTO;
 
 @RestController
 @RequestMapping("/operation")
@@ -22,7 +25,12 @@ public class OperationController {
 	}
 
 	@GetMapping
-	public List<Operation> getOperations() {
-		return operationRepository.findAll();
+	public List<OperationDTO> getOperations() {
+		return toDTO(operationRepository.findAll());
+	}
+
+	@DeleteMapping("/{id}")
+	public void deleteOperation(@PathVariable Integer id) {
+		operationRepository.delete(id);
 	}
 }

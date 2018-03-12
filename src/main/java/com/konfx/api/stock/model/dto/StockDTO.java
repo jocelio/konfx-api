@@ -21,8 +21,14 @@ public class StockDTO {
 	@JsonProperty("product_id")
 	private Integer productId;
 
+	@JsonProperty("product_name")
+	private String productName;
+
 	@JsonProperty("vendor_id")
 	private Integer vendorId;
+
+	@JsonProperty("vendor_name")
+	private String vendorName;
 
 	@JsonProperty("version")
 	private Integer version;
@@ -36,7 +42,9 @@ public class StockDTO {
 	public static StockDTO from(Stock stock){
 		return StockDTO.builder().id(stock.getId())
 				.productId(stock.getProduct().getId())
+				.productName(stock.getProduct().getName())
 				.vendorId(stock.getVendor().getId())
+				.vendorName(stock.getVendor().getName())
 				.version(stock.getVersion())
 				.unitPrice(stock.getUnitPrice())
 				.lazyQty(stock.getLazyQty()).build();

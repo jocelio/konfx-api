@@ -9,8 +9,8 @@ import org.springframework.data.mongodb.config.AbstractMongoConfiguration;
 import org.springframework.data.mongodb.core.mapping.MongoMappingContext;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
-@Configuration
-@EnableMongoRepositories("demo.mongo.model")
+//@Configuration
+//@EnableMongoRepositories("demo.mongo.model")
 public class SpringMongoConfig extends AbstractMongoConfiguration {
 
     @Value("${spring.profiles.active}")
@@ -34,7 +34,7 @@ public class SpringMongoConfig extends AbstractMongoConfiguration {
     }
 
     @Override
-    @Bean
+//    @Bean
     public Mongo mongo() throws Exception {
         return new MongoClient(mongoHost + ":" + mongoPort);
     }
