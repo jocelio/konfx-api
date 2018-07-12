@@ -7,6 +7,7 @@ import com.auth0.spring.security.api.JwtAuthenticationProvider;
 import com.auth0.spring.security.api.JwtWebSecurityConfigurer;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -15,6 +16,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
+@Profile(value = {"test", "production"})
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Value(value = "${auth0.apiAudience}")
@@ -32,8 +34,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.forRS256(apiAudience, issuer, authenticationProvider)
 				.configure(http)
 				.authorizeRequests()
+				.antMatchers("api/employee").permitAll()
 //				.antMatchers("/tasks").hasAuthority("read:messages")
-				.anyRequest().authenticated()
+//				.anyRequest().authenticated()
 				.and()
 				.csrf().disable();
 
