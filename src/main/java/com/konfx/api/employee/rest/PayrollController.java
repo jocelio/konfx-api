@@ -1,8 +1,6 @@
 package com.konfx.api.employee.rest;
 
-import com.konfx.api.employee.model.Employee;
 import com.konfx.api.employee.model.Payroll;
-import com.konfx.api.employee.repository.FrequencyRepository;
 import com.konfx.api.employee.repository.PayrollRepository;
 import io.vavr.control.Try;
 import lombok.NoArgsConstructor;
