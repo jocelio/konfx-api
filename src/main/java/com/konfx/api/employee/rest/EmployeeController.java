@@ -12,6 +12,8 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 
+import static org.springframework.http.ResponseEntity.ok;
+
 @RestController
 @RequestMapping("/api/employee")
 @NoArgsConstructor
@@ -23,8 +25,8 @@ public class EmployeeController {
 	@PostMapping
 	public ResponseEntity add(@RequestBody Employee employee) {
 		Employee saved = employeeRepository.save(employee);
-		URI uri = Try.of(() -> new URI(saved.getId().toString())).get();
-		return ResponseEntity.created(uri).build();
+//		URI uri = Try.of(() -> new URI(saved.getId().toString())).get();
+		return ok(saved);
 	}
 
 	@GetMapping

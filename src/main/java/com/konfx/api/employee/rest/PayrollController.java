@@ -2,14 +2,14 @@ package com.konfx.api.employee.rest;
 
 import com.konfx.api.employee.model.Payroll;
 import com.konfx.api.employee.repository.PayrollRepository;
-import io.vavr.control.Try;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.net.URI;
 import java.util.List;
+
+import static org.springframework.http.ResponseEntity.ok;
 
 @RestController
 @RequestMapping("/api/payroll")
@@ -22,8 +22,8 @@ public class PayrollController {
 	@PostMapping
 	public ResponseEntity add(@RequestBody Payroll payroll) {
 		Payroll saved = payrollRepository.save(payroll);
-		URI uri = Try.of(() -> new URI(saved.getId().toString())).get();
-		return ResponseEntity.created(uri).build();
+//		URI uri = Try.of(() -> new URI("http://localhost:8080/api/payroll/"+ saved.getId().toString())).get();
+		return ok(saved);
 	}
 
 	@GetMapping

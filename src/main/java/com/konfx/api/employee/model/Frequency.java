@@ -43,4 +43,13 @@ public class Frequency {
 		payroll = (payroll == null) ? Payroll.builder().id(id).build() : payroll;
 	}
 
+
+	@Override
+	public String toString() {
+		return "Frequency{" +
+				"employee=" + employee +
+				", payroll=" + payroll +
+				", dateTime=" + dateTime +
+				'}';
+	}
 }

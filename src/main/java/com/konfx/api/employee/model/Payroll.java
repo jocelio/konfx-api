@@ -26,4 +26,12 @@ public class Payroll {
 
 	private Boolean isOpen;
 
+	@Override
+	public String toString() {
+		return "{" +
+				"id=" + id +
+				", date=" + date +
+				", isOpen=" + isOpen +
+				'}';
+	}
 }

@@ -52,7 +52,7 @@ public class EmployeeInTests {
 	public void testEmployeeShouldBeRegistered() throws Exception {
 		HttpEntity<Object> employee = getHttpEntity("{\"name\": \"JOCELIO\"}");
 		ResponseEntity<Employee> response = template.postForEntity("/api/employee", employee, Employee.class);
-		Assert.assertEquals(201,response.getStatusCode().value());
+		Assert.assertEquals(200,response.getStatusCode().value());
 	}
 
 	@Test
@@ -60,11 +60,11 @@ public class EmployeeInTests {
 
 		HttpEntity<Object> employee1 = getHttpEntity("{\"name\": \"Jocelio\"}");
 		ResponseEntity<Employee> response1 = template.postForEntity("/api/employee", employee1, Employee.class);
-		Assert.assertEquals(201,response1.getStatusCode().value());
+		Assert.assertEquals(200,response1.getStatusCode().value());
 
 		HttpEntity<Object> employee2 = getHttpEntity("{\"name\": \"Heloise\"}");
 		ResponseEntity<Employee> response2 = template.postForEntity("/api/employee", employee2, Employee.class);
-		Assert.assertEquals(201,response2.getStatusCode().value());
+		Assert.assertEquals(200,response2.getStatusCode().value());
 
 
 		ResponseEntity<String> response3 = template.getForEntity("/api/employee", String.class);
